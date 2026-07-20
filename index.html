@@ -1,0 +1,515 @@
+<!--
+콘텐츠 ID: r2_lease_fraud
+회차: 2회차 (화요일 - 정보 및 문제인식)
+타깃: 네이버 카페 신규가입 예비 루매님
+카테고리: 임대차, 지입사기, 계약, 사기예방
+목적 태그: 신뢰형성, 상담전환
+후킹 공식: Before-After + 의외성 (B안)
+디자인 기준: deliveryin-design-system.md v1.0
+CTA: 전환형 단일 CTA - 상담(면접) 신청 구글폼 (저압박 "확인하기" 문구)
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임대차인 줄 알고 계약했는데, 알고 보니 제 대출로 차를 사고 있었습니다</title>
+<meta name="description" content="임대차라고 안내받았는데 신용조회를 한다면, 계약 구조부터 의심해봐야 합니다. 지입사기를 피하는 방법.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GM7XGZ6SSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GM7XGZ6SSD', {
+    page_title: 'r2_lease_fraud',
+    content_group: 'newmember_seq_2026h2'
+  });
+</script>
+
+<!-- Pretendard (deliveryin-design-system.md 6장 기본 폰트) -->
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+  :root {
+    --primary-blue: #1E63FF;
+    --primary-blue-dark: #154ED1;
+    --primary-blue-light: #EEF5FF;
+    --deep-navy: #111827;
+    --gray-900: #111827;
+    --gray-800: #1F2937;
+    --gray-700: #374151;
+    --gray-600: #4B5563;
+    --gray-500: #6B7280;
+    --gray-300: #D1D5DB;
+    --gray-100: #F3F4F6;
+    --gray-50: #F9FAFB;
+    --white: #FFFFFF;
+    --success-green: #16A34A;
+    --warning-orange: #F97316;
+    --danger-red: #EF4444;
+    --soft-yellow: #FEF3C7;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--gray-50);
+    font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    color: var(--gray-700);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+  }
+
+  .eyebrow {
+    padding: 32px 24px 0 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 0.01em;
+  }
+  h1 {
+    padding: 10px 24px 0 24px;
+    margin: 0;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
+  }
+  .section {
+    padding: 22px 24px;
+  }
+  .section p {
+    margin: 0 0 14px 0;
+    font-size: 17px;
+    color: var(--gray-700);
+  }
+  .section p:last-child { margin-bottom: 0; }
+  .divider {
+    height: 1px;
+    background: var(--gray-300);
+    margin: 4px 24px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 14px 0;
+  }
+
+  .callout-loss {
+    background: var(--soft-yellow);
+    border-left: 3px solid var(--warning-orange);
+    border-radius: 10px;
+    padding: 18px 18px;
+    margin: 4px 0 20px 0;
+    font-size: 16px;
+    color: var(--gray-800);
+  }
+  .callout-loss strong { color: var(--gray-900); }
+
+  /* Proof Card (8-6) */
+  .proof-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    padding: 22px;
+    margin: 0 0 20px 0;
+  }
+  .proof-tag {
+    display: inline-block;
+    background: var(--primary-blue-light);
+    color: var(--primary-blue-dark);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .proof-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .proof-row {
+    font-size: 14.5px;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+  .proof-row b { color: var(--gray-800); font-weight: 600; }
+  .proof-note {
+    font-size: 12.5px;
+    color: var(--gray-500);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-100);
+  }
+
+  /* 영상 임베드 */
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    margin-top: 14px;
+  }
+  .video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+  .video-embed-vertical {
+    position: relative;
+    width: 300px;
+    max-width: 85%;
+    aspect-ratio: 9 / 16; /* 실제 영상 원본 해상도 1080x1920과 동일 비율 */
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    margin: 14px auto 0 auto;
+  }
+  .video-embed-vertical iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* 보조 소스 링크 리스트 */
+  .link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .link-item .link-tag {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--primary-blue-dark);
+    background: var(--primary-blue-light);
+    padding: 3px 8px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .link-item .link-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gray-800);
+    flex: 1;
+    margin-left: 10px;
+  }
+  .link-item .link-arrow {
+    font-size: 15px;
+    color: var(--gray-500);
+    flex-shrink: 0;
+  }
+
+  /* Checklist (8-4) */
+  .checklist-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    padding: 22px 24px;
+    margin: 0;
+  }
+  .checklist-card h2 { margin-bottom: 12px; }
+  .checklist-item {
+    display: flex;
+    gap: 10px;
+    font-size: 15.5px;
+    color: var(--gray-700);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gray-300);
+    border-radius: 5px;
+    margin-top: 2px;
+  }
+
+  /* 언론 보도 카드 */
+  .press-card {
+    display: block;
+    text-decoration: none;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    margin-bottom: 16px;
+  }
+  .press-card img {
+    width: 100%;
+    display: block;
+  }
+  .press-card .press-body {
+    padding: 16px 18px;
+  }
+  .press-card .press-outlet {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .press-card .press-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .press-card .press-quote {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* Comparison Table (8-5) */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    margin-top: 4px;
+  }
+  .compare-table th {
+    background: var(--gray-50);
+    color: var(--gray-600);
+    font-weight: 700;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .compare-table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-700);
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table .col-us {
+    color: var(--primary-blue-dark);
+    font-weight: 600;
+  }
+
+  /* 정산 증빙 갤러리 - 세로 나열 */
+  .proof-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .proof-gallery img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+    display: block;
+  }
+  .proof-caption {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin: 10px 0 0 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 28px 24px 36px 24px;
+    text-align: center;
+    background: var(--primary-blue-light);
+  }
+  .cta-copy {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--deep-navy);
+    margin: 0 0 18px 0;
+    line-height: 1.5;
+  }
+  .cta-button {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    background: var(--primary-blue);
+    color: var(--white) !important;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 18px 0;
+    border-radius: 16px;
+  }
+  .cta-sub {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 14px;
+  }
+
+  .footer {
+    padding: 22px 24px 32px 24px;
+    font-size: 12px;
+    color: var(--gray-500);
+    text-align: center;
+    background: var(--white);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">예비 루매님을 위한 계약 가이드 · 2편</div>
+  <h1>임대차인 줄 알고 계약했는데,<br>알고 보니 제 대출로 차를 사고 있었습니다</h1>
+
+  <div class="section">
+    <p>임대차 계약서를 보고 안심하고 계약을 진행했는데, 갑자기 "신용조회 좀 하겠습니다"라는 말을 들으면 당황스럽습니다.</p>
+    <p>임대인데, 왜 제 개인 신용을 확인하는 걸까요?</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>임대차와 지입, 이름은 비슷해도 완전히 다릅니다</h2>
+    <p>회사가 차량을 직접 보유하고 빌려주는 것이 '임대'입니다. 그런데 일부 업체는 실제로는 기사님 개인의 신용이나 대출로 차량을 사게 만들면서, 계약서에는 '임대차'라는 이름만 붙이는 경우가 있습니다.</p>
+    <div class="callout-loss">
+      ⚠ 임대차라고 안내받았는데 신용조회를 요구한다면, 계약 구조부터 다시 확인해봐야 합니다.
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <h2>실제 있었던 일입니다</h2>
+
+    <div class="proof-card">
+      <span class="proof-tag">임대 제도</span>
+      <div class="proof-title">신용조회 없이도 임대차가 가능한 이유가 있습니다</div>
+      <div class="proof-row"><b>시작 전 상황</b> · 차량 구매 자금과 신용이 부족해 배송업 진입을 망설임</div>
+      <div class="proof-row"><b>확인한 내용</b> · 회사가 차량을 직접 보유하고 임대하는 구조라 개인 신용조회가 필요 없음</div>
+      <div class="proof-row"><b>결과</b> · 초기 자본 없이 배송업을 시작</div>
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/9d7vkVD_42s" title="신용조회 없이 임대차 가능한 이유" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="proof-card">
+      <span class="proof-tag">지입사기 실제 사례</span>
+      <div class="proof-title">지입사기 회사를 직접 겪어보니 이랬습니다</div>
+      <div class="proof-row"><b>시작 전 상황</b> · 임대차 계약인 줄 알고 진행</div>
+      <div class="proof-row"><b>확인한 문제</b> · 실제로는 개인 신용으로 차량을 구매하게 되는 구조였음</div>
+      <div class="proof-row"><b>결과</b> · 뒤늦게 지입사기 구조였다는 사실을 인지</div>
+      <div class="video-embed-vertical">
+        <iframe src="https://www.youtube.com/embed/Jc7EZ51M9Xc" title="지입사기 실제 경험 사례" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="proof-note">※ 계약 형태와 회사 정책에 따라 세부 조건은 다를 수 있습니다.</div>
+    </div>
+
+    <h2 style="font-size:16.5px; margin-top: 4px;">더 확인하고 싶다면</h2>
+    <div class="link-list">
+      <a class="link-item" href="https://youtube.com/shorts/wwdIhoR_Qcs?utm_source=naver_cafe&utm_medium=member_message&utm_campaign=newmember_seq_2026h2&utm_content=r2_lease_fraud_sub1" target="_blank" rel="noopener" onclick="gtag('event','source_click',{event_category:'engagement',event_label:'r2_sub1'});">
+        <span class="link-tag">쇼츠</span>
+        <span class="link-title">지입사기, 가장 악질인 유형은 따로 있습니다</span>
+        <span class="link-arrow">▶</span>
+      </a>
+      <a class="link-item" href="https://youtube.com/shorts/n-pXfGByb-w?utm_source=naver_cafe&utm_medium=member_message&utm_campaign=newmember_seq_2026h2&utm_content=r2_lease_fraud_sub2" target="_blank" rel="noopener" onclick="gtag('event','source_click',{event_category:'engagement',event_label:'r2_sub2'});">
+        <span class="link-tag">쇼츠</span>
+        <span class="link-title">돈부터 먼저 받으려는 곳이라면, 일단 의심하세요</span>
+        <span class="link-arrow">▶</span>
+      </a>
+      <a class="link-item" href="https://youtube.com/shorts/MdjTMLmnQ9A?utm_source=naver_cafe&utm_medium=member_message&utm_campaign=newmember_seq_2026h2&utm_content=r2_lease_fraud_sub3" target="_blank" rel="noopener" onclick="gtag('event','source_click',{event_category:'engagement',event_label:'r2_sub3'});">
+        <span class="link-tag">쇼츠</span>
+        <span class="link-title">"내가 원하는 만큼" 조정되는 임대차도 있습니다</span>
+        <span class="link-arrow">▶</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:6px;">
+    <div class="checklist-card">
+      <h2>임대차 계약서, 사인 전 이것만은 확인하세요</h2>
+      <div class="checklist-item"><span class="checklist-box"></span>임대차라고 안내받았는데 개인 신용조회를 요구하나요?</div>
+      <div class="checklist-item"><span class="checklist-box"></span>계약 기간이 끝나면 차량은 누구 소유로 남나요?</div>
+      <div class="checklist-item"><span class="checklist-box"></span>보험료, 정비비 같은 차량 관련 비용은 누가 부담하나요?</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>배송인그룹이 계약 전에 먼저 보는 것</h2>
+    <p>처음이라 임대와 지입의 차이를 구분하기 어려운 게 당연합니다. 배송인그룹은 업계 최초로 차량 임대 제도를 도입해, 회사 신용으로 차량을 임대하기 때문에 개인 신용조회가 필요하지 않습니다.</p>
+
+    <a class="press-card" href="https://www.bizsel-media.com/news/424847" target="_blank" rel="noopener" onclick="gtag('event','press_click',{event_category:'engagement',event_label:'r2_press_lease'});">
+      <img src="https://www.ehom.kr/news/2026/04/14/d089aeed935aa18ec03e8507d1848f9d195630.png" alt="배송인그룹 업계 최초 차량 임대 제도 도입 기사">
+      <div class="press-body">
+        <div class="press-outlet">비즈셀미디어</div>
+        <div class="press-title">(주)배송인그룹, 업계 최초 '차량 임대 제도' 도입</div>
+        <div class="press-quote">"차량을 개인이 구매하지 않고 회사 차원에서 운영하는 임대 방식... 개인의 신용 등급이나 대출 한도와 무관하게 업무를 시작할 수 있는 구조"</div>
+      </div>
+    </a>
+
+    <a class="press-card" href="https://www.bizsel-media.com/news/424849" target="_blank" rel="noopener" onclick="gtag('event','press_click',{event_category:'engagement',event_label:'r2_press_consulting'});">
+      <img src="https://www.ehom.kr/news/2026/04/14/1b65683575502bc2ec6be531a1b7a298195821.jpg" alt="배송인그룹 투명 채용 컨설팅 확대 기사">
+      <div class="press-body">
+        <div class="press-outlet">비즈셀미디어</div>
+        <div class="press-title">(주)배송인그룹, 배송업 지입 사기 피해 예방 위한 '투명 채용 컨설팅' 확대</div>
+        <div class="press-quote">"상담 단계에서 예비 배송인이 타 업체와 진행 중인 계약 조건을 함께 검토하고... 부당 계약 정황이 확인될 경우 이를 사전에 안내"</div>
+      </div>
+    </a>
+
+    <table class="compare-table">
+      <tr><th>구분</th><th>혼자 알아볼 때</th><th>배송인그룹과 진행할 때</th></tr>
+      <tr><td>차량 확보</td><td>개인 신용·자금 필요</td><td class="col-us">회사 임대, 개인 신용조회 불필요</td></tr>
+      <tr><td>계약 검증</td><td>직접 판단 필요</td><td class="col-us">사전 계약 조건 검토</td></tr>
+      <tr><td>문제 발생 시</td><td>혼자 대응</td><td class="col-us">법률 상담 연계</td></tr>
+    </table>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <h2 style="font-size:16.5px;">배송인그룹과 함께하는 기사님들의 실제 정산 자료</h2>
+    <div class="proof-gallery">
+      <img src="https://i.ibb.co/SCWhNC7/01.png" alt="가구조립배송 실제 정산 자료 예시 1">
+      <img src="https://i.ibb.co/dsJS6LGc/02.png" alt="가구조립배송 실제 정산 자료 예시 2">
+      <img src="https://i.ibb.co/Kp89GMd9/03.png" alt="가구조립배송 실제 정산 자료 예시 3">
+    </div>
+    <p class="proof-caption">실제 가구조립배송 정산 자료 예시</p>
+  </div>
+
+  <div class="cta-section">
+    <p class="cta-copy">내 조건대로 계약해도 괜찮은지,<br>지금 확인해보세요.</p>
+    <a class="cta-button" href="https://docs.google.com/forms/d/e/1FAIpQLScpubQIBxgWSSOpdU0jHnhaaJ7NB4fPFIVgtafCpkaCtojlnw/viewform?usp=pp_url&entry.935234482=r2" target="_blank" rel="noopener"
+      onclick="gtag('event','cta_click',{event_category:'conversion',event_label:'r2_lease_fraud'});">
+      내 계약 조건 확인하기
+    </a>
+    <p class="cta-sub">확인 후 필요하시면 상담으로 연결해 드립니다.</p>
+  </div>
+
+  <div class="footer">
+    배송인그룹 · 본 콘텐츠는 실제 사례를 바탕으로 제작되었습니다.
+  </div>
+
+</div>
+</body>
+</html>
